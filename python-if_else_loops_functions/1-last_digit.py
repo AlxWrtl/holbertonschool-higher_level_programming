@@ -6,7 +6,7 @@ lastDigit = int(repr(number)[-1])
 
 if lastDigit > 5:
     print(f"Last digit of {number} is {lastDigit} and is greater than 5")
-elif lastDigit == 0:
+if lastDigit == 0:
     print(f"Last digit of {number} is {lastDigit} and is 0")
-else:
+if lastDigit < 6 and lastDigit != 0:
     print(f"Last digit of {number} is {lastDigit} and is less than 6")
