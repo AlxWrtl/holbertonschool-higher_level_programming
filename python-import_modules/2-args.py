@@ -5,14 +5,14 @@ argv = sys.argv[1:]
 arg = len(argv)
 
 if arg == 0:
-    print(f"{arg} arguments.")
+    print("{} arguments.".format(arg))
 
 elif arg == 1:
-    print(f"{arg} argument:")
+    print("{} argument:".format(arg))
     for i, arg in enumerate(argv, start=1):
-        print(f"{i}: {arg}")
+        print("{}: {}".format(i, arg))
 
 else:
-    print(f"{arg} arguments:")
+    print("{} arguments:".format(arg))
     for i, arg in enumerate(argv, start=1):
-        print(f"{i}: {arg}")
+        print("{}: {}".format(i, arg))
