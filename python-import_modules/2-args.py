@@ -5,7 +5,7 @@ argv = sys.argv[1:]
 arg = len(argv)
 
 if arg == 0:
-    print("{} arguments.".format(arg))
+    print("{} arguments.".format(arg), end="")
 
 elif arg == 1:
     print("{} argument:".format(arg))
