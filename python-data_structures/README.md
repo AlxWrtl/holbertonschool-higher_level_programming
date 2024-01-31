@@ -24,6 +24,7 @@ This project consists of Python scripts focused on basic list operations and man
 - **Filename**: `1-element_at.py`
 - **Description**: Retrieves an element from a list at a specified index.
 - **Code Snippet**:
+
   ```python
 
   def element_at(my_list, idx):
@@ -75,9 +76,11 @@ This project consists of Python scripts focused on basic list operations and man
   ```
 
 ### 7. Print Matrix Integer
+
 - **Filename**: `6-print_matrix_integer.py`
 - **Description**: Prints a matrix of integers.
 - **Code Snippet**:
+
   ```python
   def print_matrix_integer(matrix=[[]]):
       # ... function logic ...
@@ -110,6 +113,7 @@ This project consists of Python scripts focused on basic list operations and man
 - **Filename**: `9-max_integer.py`
 - **Description**: Finds the largest integer in a list.
 - **Code Snippet**:
+
   ```python
 
   def max_integer(my_list=[]):
@@ -132,6 +136,7 @@ This project consists of Python scripts focused on basic list operations and man
 - **Filename**: `11-delete_at.py`
 - **Description**: Deletes an element at a specified index in a list.
 - **Code Snippet**:
+
   ```python
 
   def delete_at(my_list=[], idx=0):
