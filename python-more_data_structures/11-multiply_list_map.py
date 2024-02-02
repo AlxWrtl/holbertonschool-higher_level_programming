@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 def multiply_list_map(my_list=[], number=0):
-    return list(map(lambda mult: mult * number, my_list if my_list is not None else []))
+    return list(map(lambda mult: mult * number, my_list))
