@@ -12,17 +12,12 @@ with proper validation.
 class Rectangle:
     """A class to represent a rectangle with customizable dimensions.
 
-    Class Attributes:
-        number_of_instances (int): Counts the Rectangle instances.
-        print_symbol (any): Symbol for string representation.
-
     Instance Attributes:
         width (int): Width of the rectangle, non-negative integer.
         height (int): Height of the rectangle, non-negative integer.
-    """
 
+    """
     number_of_instances = 0
-    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Initialize a Rectangle instance with width and height.
@@ -30,6 +25,7 @@ class Rectangle:
         Args:
             width (int): Width of the rectangle, defaults to 0.
             height (int): Height of the rectangle, defaults to 0.
+
         """
         self.width = width
         self.height = height
@@ -50,6 +46,7 @@ class Rectangle:
         Raises:
             TypeError: If width is not an integer.
             ValueError: If width is negative.
+
         """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
@@ -72,6 +69,7 @@ class Rectangle:
         Raises:
             TypeError: If height is not an integer.
             ValueError: If height is negative.
+
         """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
@@ -80,13 +78,11 @@ class Rectangle:
         self._height = value
 
     def area(self):
-        """Return the rectangle's area."""
+        """Return the area of the rectangle."""
         return self.width * self.height
 
     def perimeter(self):
-        """Return the rectangle's perimeter, or 0 if width/height is 0."""
-        if self.width == 0 or self.height == 0:
-            return 0
+        """Return the perimeter of the rectangle."""
         return 2 * (self.width + self.height)
 
     def __str__(self):
@@ -107,19 +103,21 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """Return larger area rectangle or rect_2 if areas are equal.
+        """Return the rectangle with the largest area.
 
         Args:
-            rect_1 (Rectangle): The first rectangle.
-            rect_2 (Rectangle): The second rectangle.
+            rect_1 (Rectangle): First rectangle.
+            rect_2 (Rectangle): Second rectangle.
 
         Returns:
-            Rectangle: Larger area rectangle, or rect_2 if areas equal.
+            Rectangle: The rectangle with the largest area.
 
         Raises:
-            TypeError: If rect_1 or rect_2 not a Rectangle instance.
+            TypeError: If rect_1 or rect_2 is not a Rectangle.
+
         """
-        if not isinstance(rect_1, Rectangle) or \
-                not isinstance(rect_2, Rectangle):
-            raise TypeError("Both arguments must be Rectangle instances")
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be a Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be a Rectangle")
         return rect_1 if rect_1.area() >= rect_2.area() else rect_2
