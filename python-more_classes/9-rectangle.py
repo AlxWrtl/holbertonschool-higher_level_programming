@@ -107,7 +107,8 @@ class Rectangle:
             size (int): The size of each side of the square.
 
         Returns:
-            Rectangle: A new Rectangle instance with width and height equal to size.
+            Rectangle: A new Rectangle instance with width and height
+            equal to size.
         """
         return cls(size, size)
 
