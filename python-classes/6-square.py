@@ -46,8 +46,10 @@ class Square:
         Raises:
             ValueError: If size is not a non-negative integer.
         """
-        if not isinstance(value, int) or value < 0:
-            raise ValueError("size must be a non-negative integer")
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        if value < 0:
+            raise ValueError("size must be >= 0")
         self.__size = value
 
     @property
@@ -59,19 +61,19 @@ class Square:
     def position(self, value):
         """Set the position of the square with validation.
 
-        Ensures position is a tuple of 2 non-negative integers.
+        Ensures position is a tuple of 2 positive integers.
 
         Args:
             value (tuple): The new position of the square.
 
         Raises:
-            ValueError: If position does not meet the specified criteria.
+            TypeError: If position is not a tuple of 2 positive integers.
         """
         if not (isinstance(value, tuple) and len(value) == 2 and
                 all(isinstance(i, int) for i in value) and
-                all(i >= 0 for i in value)):
-            raise ValueError(
-                "position must be a tuple of 2 non-negative integers")
+                all(i > 0 for i in value)):
+            raise TypeError(
+                "position must be a tuple of 2 positive integers")
         self.__position = value
 
     def area(self):
@@ -93,4 +95,4 @@ class Square:
             return
         print("\n" * self.position[1], end="")
         for _ in range(self.size):
-            print("" * self.position[0] + "#" * self.size)
+            print(" " * self.position[0] + "#" * self.size)
