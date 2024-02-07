@@ -13,73 +13,95 @@ class Rectangle:
     """A class to represent a rectangle with customizable dimensions.
 
     Class Attributes:
-        number_of_instances (int): Counts the instances.
+        number_of_instances (int): Counts the Rectangle instances.
         print_symbol (any): Symbol for string representation.
 
     Instance Attributes:
-        width (int): Non-negative integer width.
-        height (int): Non-negative integer height.
+        width (int): Width of the rectangle, non-negative integer.
+        height (int): Height of the rectangle, non-negative integer.
     """
+
     number_of_instances = 0
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        """Initialize with width and height, defaults to 0."""
+        """Initialize a Rectangle instance with width and height.
+
+        Args:
+            width (int): Width of the rectangle, defaults to 0.
+            height (int): Height of the rectangle, defaults to 0.
+        """
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
 
     @property
     def width(self):
-        """Width property with validation."""
-        return self.__width
+        """Get or set the rectangle's width with validation."""
+        return self._width
 
     @width.setter
     def width(self, value):
-        """Set width with validation, must be non-negative integer."""
+        """Set the rectangle's width with validation.
+
+        Args:
+            value (int): New width, must be integer >= 0.
+
+        Raises:
+            TypeError: If width is not an integer.
+            ValueError: If width is negative.
+        """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-        self.__width = value
+        self._width = value
 
     @property
     def height(self):
-        """Height property with validation."""
-        return self.__height
+        """Get or set the rectangle's height with validation."""
+        return self._height
 
     @height.setter
     def height(self, value):
-        """Set height with validation, must be non-negative integer."""
+        """Set the rectangle's height with validation.
+
+        Args:
+            value (int): New height, must be integer >= 0.
+
+        Raises:
+            TypeError: If height is not an integer.
+            ValueError: If height is negative.
+        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
-        self.__height = value
+        self._height = value
 
     def area(self):
-        """Calculate and return the rectangle's area."""
-        return self.__width * self.__height
+        """Return the rectangle's area."""
+        return self.width * self.height
 
     def perimeter(self):
-        """Calculate perimeter, or return 0 if width or height is 0."""
-        if self.__width == 0 or self.__height == 0:
+        """Return the rectangle's perimeter, or 0 if width/height is 0."""
+        if self.width == 0 or self.height == 0:
             return 0
-        return 2 * (self.__width + self.__height)
+        return 2 * (self.width + self.height)
 
     def __str__(self):
-        """String representation using `print_symbol`."""
-        if self.__width == 0 or self.__height == 0:
+        """Return a string representation using `print_symbol`."""
+        if self.width == 0 or self.height == 0:
             return ""
-        pattern = str(self.print_symbol) * self.__width
-        return "\n".join([pattern for _ in range(self.__height)])
+        line = str(self.print_symbol) * self.width
+        return "\n".join([line] * self.height)
 
     def __repr__(self):
-        """Formal string for recreating the rectangle."""
-        return f"Rectangle({self.__width}, {self.__height})"
+        """Return a formal string for recreating the rectangle."""
+        return f"Rectangle({self.width}, {self.height})"
 
     def __del__(self):
-        """Message upon deletion and decrement instance count."""
+        """Print a message upon deletion and update instance count."""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
