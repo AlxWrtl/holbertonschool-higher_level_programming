@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """Module for Rectangle class definition.
-This module defines a Rectangle class with methods for initializing a rectangle,
-calculating its area and perimeter, and comparing the areas of two rectangles.
-It uses property decorators for safe access and modification of width and height
+This module defines a Rectangle class with methods for initializing
+a rectangle,calculating its area and perimeter,
+and comparing the areas of two rectangles.It uses property
+decorators for safe access and modification of width and height
 with proper validation.
 """
 
@@ -77,7 +78,8 @@ class Rectangle:
         return self.width * self.height
 
     def perimeter(self):
-        """Calculate and return the rectangle's perimeter, 0 if width or height is 0."""
+        """Calculate and return the rectangle's perimeter,
+        0 if width or height is 0."""
         if self.width == 0 or self.height == 0:
             return 0
         return 2 * (self.width + self.height)
@@ -109,6 +111,7 @@ class Rectangle:
         Returns:
             Rectangle: The rectangle with the bigger or equal area.
         """
-        if not isinstance(rect_1, Rectangle) or not isinstance(rect_2, Rectangle):
+        if (not isinstance(rect_1, Rectangle) or
+                not isinstance(rect_2, Rectangle)):
             raise TypeError("rect_1 and rect_2 must be instances of Rectangle")
         return rect_1 if rect_1.area() >= rect_2.area() else rect_2
