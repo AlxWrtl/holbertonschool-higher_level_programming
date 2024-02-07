@@ -1,4 +1,3 @@
-import sys
 #!/usr/bin/python3
 """Module for Square class definition.
 
