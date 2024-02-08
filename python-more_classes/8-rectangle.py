@@ -111,7 +111,6 @@ class Rectangle:
         Returns:
             Rectangle: The rectangle with the bigger or equal area.
         """
-        if (not isinstance(rect_1, Rectangle) or
-                not isinstance(rect_2, Rectangle)):
+        if (not isinstance(rect_2, Rectangle)):
             raise TypeError("rect_1 and rect_2 must be instances of Rectangle")
         return rect_1 if rect_1.area() >= rect_2.area() else rect_2
