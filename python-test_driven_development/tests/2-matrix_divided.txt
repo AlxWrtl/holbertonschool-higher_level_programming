@@ -11,9 +11,17 @@
 >>>matrix_divided(matrix, 2.5)
 [[0.4, 0.8, 1.2], [1.6, 2.0, 2.4]]
 
+(matrix_divided([["a", "b", "c"], ["d", "e", "f"]], 5))
+Traceback (most recent call last):
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+
 >>> matrix_divided(matrix, 3)[[-1.0, -2.67], [-4.0, -3.67]]
 Traceback (most recent call last):
 TypeError: list indices must be integers or slices, not tuple
+
+>>>matrix_divided(matrix, matrix)
+Traceback (most recent call last):
+TypeError: div must be a number
 
 >>>matrix_divided(matrix, 0)
 Traceback (most recent call last):
