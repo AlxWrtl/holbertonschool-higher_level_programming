@@ -1,28 +1,26 @@
-#!/usr/bin/python3
-"""Module for text_indentation function.
-
-This module defines a function that prints text with 2 new lines after each
-'.' (period), '?' (question mark), and ':' (colon). It ensures the input is
-a string and removes leading and trailing spaces on each line.
-"""
-
-
 def text_indentation(text):
-    """Prints text with two new lines after '.', '?', and ':'.
+    """Function to indent text after punctuation marks.
 
-    The function also trims leading and trailing spaces from each line. It
-    checks if the input is a string before processing.
+    This function takes a string and prints it with two new lines after each
+    punctuation mark ('.', '?', ':'). It also ensures that any spaces
+    following these punctuation marks are removed before adding the new lines.
 
     Args:
-        text (str): The text to be processed and printed.
+        text (str): The text to be indented. Must be a string.
 
     Raises:
-        TypeError: If text is not a string.
+        TypeError: If the input is not a string.
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    text = text.replace('.', '.\n\n')
-    text = text.replace('?', '?\n\n')
-    text = text.replace(':', ':\n\n')
-    print("\n".join([line.strip() for line in text.split("\n")]), end="")
-    print()
+
+    i = 0
+    while i < len(text):
+        print(text[i], end="")
+        if text[i] in ".?:":
+            print("\n")
+            if i + 1 < len(text):
+                while i + 1 < len(text) and text[i + 1] == " ":
+                    i += 1
+            print("\n", end="")
+        i += 1
