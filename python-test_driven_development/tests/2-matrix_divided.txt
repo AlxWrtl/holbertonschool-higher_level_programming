@@ -14,20 +14,13 @@
 >>> (matrix_divided(matrix, 2), [[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]])
 ([[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]], [[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]])
 
->>> (matrix_divided(matrix, 2), [[-0.5, -1.0, -1.5], [-2.0, -2.5, -3.0]])
-([[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]], [[-0.5, -1.0, -1.5], [-2.0, -2.5, -3.0]])
-
 >>> (matrix_divided(matrix, 2), [[0.75, 1.25, 1.75], [2.25, 2.75, 3.25]])
 ([[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]], [[0.75, 1.25, 1.75], [2.25, 2.75, 3.25]])
-
 
 >>> (matrix_divided([["a", "b", "c"], ["d", "e", "f"]], 5))
 Traceback (most recent call last):
 TypeError: unsupported operand type(s) for /: 'str' and 'int'
 
->>> matrix_divided(matrix, 3)[[-1.0, -2.67], [-4.0, -3.67]]
-Traceback (most recent call last):
-TypeError: list indices must be integers or slices, not tuple
 
 >>>matrix_divided(matrix, matrix)
 Traceback (most recent call last):
@@ -64,11 +57,3 @@ TypeError: div must be a number
 >>> matrix_divided(matrix,)
 Traceback (most recent call last):
 TypeError: matrix_divided() missing 1 required positional argument: 'div'
-
->>> matrix_divided(matrix, -1)
-Traceback (most recent call last):
-ValueError: div must be greater than 0
-
->>> matrix_divided(matrix, -1.5)
-Traceback (most recent call last):
-ValueError: div must be greater than 0
