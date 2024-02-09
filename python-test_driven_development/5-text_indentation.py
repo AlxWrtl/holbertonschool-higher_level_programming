@@ -1,11 +1,15 @@
-def text_indentation(text):
-    """Function to indent text after punctuation marks.
+#!/usr/bin/python3
+"""Function to indent text after punctuation marks.
 
     This function takes a string and prints it with two new lines after each
     punctuation mark ('.', '?', ':'). It also ensures that any spaces
     following these punctuation marks are removed before adding the new lines.
+"""
 
-    Args:
+
+def text_indentation(text):
+
+    """Args:
         text (str): The text to be indented. Must be a string.
 
     Raises:
