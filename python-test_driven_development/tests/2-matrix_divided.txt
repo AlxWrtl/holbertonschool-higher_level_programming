@@ -15,6 +15,10 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 Traceback (most recent call last):
 TypeError: Each row of the matrix must have the same size
 
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
 >>> matrix_divided(matrix, matrix)
 Traceback (most recent call last):
 TypeError: div must be a number
