@@ -4,7 +4,7 @@
 text
 
 >>> text_indentation("\n")
-
+<BLANKLINE>
 
 >>> text_indentation()
 Traceback (most recent call last):
