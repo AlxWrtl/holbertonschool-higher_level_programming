@@ -3,6 +3,9 @@
 >>> text_indentation("text")
 text
 
+>>> text_indentation()
+
+
 >>> text_indentation("\n")
 <BLANKLINE>
 
