@@ -3,8 +3,10 @@
 >>> text_indentation("text")
 text
 
->>> text_indentation()
-
+>>> text_indentation("Holberton.School")
+Holberton.
+<BLANKLINE>
+School
 
 >>> text_indentation("\n")
 <BLANKLINE>
