@@ -23,8 +23,8 @@ class Rectangle:
             width (int): Width of the rectangle, defaults to 0.
             height (int): Height of the rectangle, defaults to 0.
         """
-        self.width = width  # Uses the width setter for validation
-        self.height = height  # Uses the height setter for validation
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
