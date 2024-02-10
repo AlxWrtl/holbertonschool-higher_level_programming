@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """Module for Rectangle class definition.
-This module defines a Rectangle class with methods for initializing
-a rectangle,calculating its area and perimeter,
-and comparing the areas of two rectangles.It uses property
-decorators for safe access and modification of width and height
-with proper validation.
+
+This module defines a Rectangle class for representing rectangles with
+customizable width and height. It supports calculating area, perimeter,
+instance comparison, and visual representation. Tracks instance count and
+allows symbol customization for string representation.
 """
 
 
@@ -24,10 +24,11 @@ class Rectangle:
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle instance with specified width and height.
+        """Initialize a Rectangle instance with width and height.
+
         Args:
-            width (int): The width of the rectangle, defaults to 0.
-            height (int): The height of the rectangle, defaults to 0.
+            width (int): Width of the rectangle, defaults to 0.
+            height (int): Height of the rectangle, defaults to 0.
         """
         self.width = width
         self.height = height
@@ -35,14 +36,16 @@ class Rectangle:
 
     @property
     def width(self):
-        """int: Get or set the rectangle's width with validation."""
+        """Get or set the rectangle's width with validation."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Set the rectangle's width with validation for integer >= 0.
+        """Set the rectangle's width with validation.
+
         Args:
-            value (int): New width of the rectangle.
+            value (int): New width, must be integer >= 0.
+
         Raises:
             TypeError: If width is not an integer.
             ValueError: If width is negative.
@@ -55,14 +58,16 @@ class Rectangle:
 
     @property
     def height(self):
-        """int: Get or set the rectangle's height with validation."""
+        """Get or set the rectangle's height with validation."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Set the rectangle's height with validation for integer >= 0.
+        """Set the rectangle's height with validation.
+
         Args:
-            value (int): New height of the rectangle.
+            value (int): New height, must be integer >= 0.
+
         Raises:
             TypeError: If height is not an integer.
             ValueError: If height is negative.
@@ -74,12 +79,11 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Calculate and return the rectangle's area."""
+        """Return the rectangle's area."""
         return self.width * self.height
 
     def perimeter(self):
-        """Calculate and return the rectangle's perimeter,
-        0 if width or height is 0."""
+        """Return the rectangle's perimeter, or 0 if width/height is 0."""
         if self.width == 0 or self.height == 0:
             return 0
         return 2 * (self.width + self.height)
