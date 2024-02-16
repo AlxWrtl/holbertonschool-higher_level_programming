@@ -2,8 +2,8 @@
 """Module for file writing function.
 
 This module defines a function for writing text to a file, allowing for custom
-file paths and text content. The file is written with UTF-8 encoding, supporting
-a wide range of characters.
+file paths and text content. The file is written with UTF-8 encoding,
+supporting a wide range of characters.
 """
 
 
@@ -17,8 +17,8 @@ def write_file(filename="", text=""):
 
     Args:
         filename (str): Path to the file where the text will be written.
-                        Defaults to an empty string, implying a default filename
-                        if applicable.
+                        Defaults to an empty string, implying a default
+                        filename if applicable.
         text (str): The text to be written to the file. Defaults to an empty
                     string if no text is provided.
 
