@@ -28,21 +28,3 @@ class Square(Rectangle):
         super().__init__(size, size)
         self.__size = size
 
-    def area(self):
-        """Calculate the area of the square.
-
-        Returns:
-            int: The area of the square.
-        """
-        return self.__size ** 2
-
-    def __str__(self):
-        """Provide a string representation of the square.
-
-        Overrides the default string representation to follow the format
-        "[Square] {size}/{size}".
-
-        Returns:
-            str: Formatted string representation of the square.
-        """
-        return "[Square] {}/{}".format(self.__size, self.__size)
