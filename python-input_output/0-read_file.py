@@ -18,5 +18,6 @@ def read_file(filename=""):
         filename (str): Path to the file to be read. Defaults to an empty
                         string, implying a default filename if applicable.
     """
-    with open(filename, 'r', encoding='utf-8') as f:
-        print(f.read(), end='')
+    with open(filename, 'r', encoding='utf-8') as file:
+        read_file = file.read()
+        print(read_file, end='')
