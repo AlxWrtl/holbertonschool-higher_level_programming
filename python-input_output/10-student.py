@@ -1,9 +1,10 @@
 class Student:
     """A class to represent a student with customizable attributes.
 
-    This class defines a Student with first name, last name, and age attributes.
-    It includes a method to serialize the student instance into a dictionary,
-    optionally filtering and ordering the serialized data based on specific
+    This class defines a Student with first name, last name,
+    and age attributes. It includes a method to serialize the
+    student instance into a dictionary, optionally filtering
+    and ordering the serialized data based on specific
     attributes.
 
     Attributes:
@@ -43,8 +44,10 @@ class Student:
         """
         result_dict = {}
         if isinstance(attrs, list):
-            attributes = {key: getattr(self, key)
-                for key in attrs if hasattr(self, key)}
+            attributes = {
+                key: getattr(self, key)
+                for key in attrs if hasattr(self, key)
+            }
         else:
             attributes = self.__dict__
         preferred_order = ['age', 'last_name', 'first_name']
