@@ -51,19 +51,3 @@ class Student:
                 }
             return sorted_dict
         return self.__dict__
-
-
-def reload_from_json(self, json):
-    """Update object attributes based on a provided JSON dictionary.
-
-    This method dynamically updates the attributes of an instance based on
-    the key-value pairs provided in a JSON dictionary. It iterates through
-    each key-value pair in the JSON, setting each attribute of the instance
-    to the corresponding value.
-
-    Args:
-        json (dict): A dictionary where keys are attribute names and values
-                    are the corresponding values to set on the instance.
-    """
-    for key, value in json.items():
-        setattr(self, key, value)
