@@ -42,18 +42,12 @@ class Student:
             dict: A dictionary representation of the Student instance,
             filtered and ordered as specified.
         """
-        result_dict = {}
-        if isinstance(attrs, list):
-            attributes = {
-                key: getattr(self, key)
-                for key in attrs if hasattr(self, key)
-            }
-        else:
-            attributes = self.__dict__
-        preferred_order = ['age', 'last_name', 'first_name']
-        for key in preferred_order:
-            if key in attributes:
-                result_dict[key] = attributes.pop(key)
-        for key in sorted(attributes.keys()):
-            result_dict[key] = attributes[key]
-        return result_dict
+        if (isinstance(attrs, list) and
+                all(isinstance(item, str) for item in attrs)):
+            sorted_dict = {
+                key: value for key,
+                value in self.__dict__.items()
+                if key in attrs
+                }
+            return sorted_dict
+        return self.__dict__
