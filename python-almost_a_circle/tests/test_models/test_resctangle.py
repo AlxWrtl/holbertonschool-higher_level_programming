@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import unittest
+import json
 from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):

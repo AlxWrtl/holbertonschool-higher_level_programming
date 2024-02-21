@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 import unittest
+import json
 from models.square import Square
 
 
 class TestSquare(unittest.TestCase):
 
-    # Constructor tests
+
     def test_01_constructor_basic(self):
         """Test Square with basic size"""
         s = Square(1)
