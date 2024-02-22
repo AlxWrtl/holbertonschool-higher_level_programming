@@ -40,6 +40,3 @@ class TestBase(unittest.TestCase):
         """Test if to_json_string([{'id': 12}]) returns a string"""
         result = Base.to_json_string([{'id': 12}])
         self.assertIsInstance(result, str, "Should return a string")
-
-if __name__ == '__main__':
-    unittest.main()
