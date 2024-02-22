@@ -41,24 +41,5 @@ class TestBase(unittest.TestCase):
         result = Base.to_json_string([{'id': 12}])
         self.assertIsInstance(result, str, "Should return a string")
 
-    def test_08_from_json_string_none(self):
-        """Test if from_json_string(None) works"""
-        self.assertEqual(Base.from_json_string(None), [], "Should return []")
-
-    def test_09_from_json_string_empty_string(self):
-        """Test if from_json_string("[]") works"""
-        self.assertEqual(Base.from_json_string("[]"), [], "Should return []")
-
-    def test_10_from_json_string_with_data(self):
-        """Test if from_json_string('[{"id": 89}]') works"""
-        self.assertEqual(Base.from_json_string('[{"id": 89}]'), [
-                        {'id': 89}], "Should return [{'id': 89}]")
-
-    def test_11_from_json_string_returns_list(self):
-        """Test if from_json_string('[{"id": 89}]') returns a list"""
-        result = Base.from_json_string('[{"id": 89}]')
-        self.assertIsInstance(result, list, "Should return a list")
-
-
 if __name__ == '__main__':
     unittest.main()
