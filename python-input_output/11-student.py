@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Module for converting class instances to JSON-compatible dictionaries."""
+
 
 def __init__(self, first_name, last_name, age):
     """Initialize an instance with first name, last name, and age.

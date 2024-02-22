@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+"""Module for converting class instances to JSON-compatible dictionaries."""
+
 class Student:
     """A class to represent a student with customizable attributes.
 
