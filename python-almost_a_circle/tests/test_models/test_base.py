@@ -6,11 +6,13 @@ from models.base import Base
 
 class TestBase(unittest.TestCase):
 
-    def test_01_auto_assign_id(self):
-        """Test if Base() automatically assigns an ID"""
-        base1 = Base()
-        self.assertIsNotNone(base1.id, "ID should not be None")
+    def test_assign_id(self):
+        test = Base(50)
+        self.assertEqual(test.id, 50)
 
+    def test_no_id_assigned(self):
+        test = Base()
+        self.assertEqual(test.id, 1)
 
 if __name__ == '__main__':
     unittest.main()
