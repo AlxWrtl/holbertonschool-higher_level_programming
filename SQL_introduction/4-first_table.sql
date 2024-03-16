@@ -1,0 +1,4 @@
+-- Create a new table named 'first_table' if it does not already exist
+-- The table has two columns: 'id' as an integer and 'name' as a variable character string with a maximum length of 256 characters
+CREATE TABLE
+    IF NOT EXISTS first_table (id INT, name VARCHAR(256));
