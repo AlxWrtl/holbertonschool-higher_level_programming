@@ -1,40 +1,49 @@
 #!/usr/bin/python3
 """
-Module for listing cities from a database.
+A script that lists all cities from a specific database.
 
-This script lists all cities from the 'hbtn_0e_0_usa' database, joining them
-with their corresponding states. It demonstrates the use of MySQLdb for
-database connection and complex querying with JOIN statements, using
-command-line arguments for database credentials. The script ensures operations
-are performed in a safe context using a 'with' statement for resource management.
+This script is designed to connect to a MySQL database and list all cities,
+sorted by their IDs in ascending order. The cities are fetched from the
+'hbtn_0e_4_usa' database, and their names are listed alongside their corresponding
+state names. This script exemplifies the use of MySQLdb for establishing a
+database connection and executing SQL queries. It uses command-line arguments
+to receive database connection details (username, password, and database name).
 """
 
 import MySQLdb
 from sys import argv
 
-if __name__ == '__main__':
+
+def list_cities():
     """
-    Connect to the MySQL database using credentials and database name
-    provided as command-line arguments. Retrieves cities and their
-    corresponding states in an orderly manner.
+    Connects to the MySQL database using provided command-line arguments and lists
+    all cities along with their corresponding state names, sorted by city IDs.
     """
-    db = MySQLdb.connect(
-        host="localhost",  # Database server address
-        user=argv[1],      # Database username
-        port=3306,         # Database server port
-        passwd=argv[2],    # Database password
-        db=argv[3]         # Database name
-    )
+    # Ensure the script does not execute when imported
+    if __name__ == '__main__':
+        # Establish a database connection
+        db = MySQLdb.connect(
+            host="localhost",  # Database server address
+            user=argv[1],      # Database username
+            passwd=argv[2],    # Database password
+            db=argv[3],        # Database name
+            port=3306          # Database server port
+        )
 
-    # Execute a query to join cities and states, ordering by cities' IDs
-    with db.cursor() as cursor:
-        cursor.execute("SELECT cities.id, cities.name, states.name \
-                        FROM cities JOIN states ON cities.state_id = states.id \
-                        ORDER BY cities.id ASC")
+        # Create a cursor object to execute the query
+        with db.cursor() as cursor:
+            cursor.execute("""
+                SELECT cities.id, cities.name, states.name
+                FROM cities
+                JOIN states ON cities.state_id = states.id
+                ORDER BY cities.id ASC
+            """)
 
-        # Fetch and print all rows that match the query
-        rows = cursor.fetchall()
-
-        if rows is not None:
+            # Fetch all rows matching the query and print them
+            rows = cursor.fetchall()
             for row in rows:
                 print(row)
+
+
+# Call the function to list cities
+list_cities()
