@@ -1,37 +1,36 @@
 #!/usr/bin/python3
 """
-Module for listing State objects from a database.
-
-This script utilizes SQLAlchemy ORM to interact with the `hbtn_0e_6_usa`
-database, listing all State objects. It demonstrates database connection
-setup, session creation, and ORM querying, making use of command-line
-arguments for database access credentials.
+script that lists all State objects
+from the database `hbtn_0e_6_usa`.
 """
 
 from sys import argv
-from model_state import State, Base  # Importing the State model and Base
-from sqlalchemy import create_engine  # Importing create_engine
-from sqlalchemy.orm import sessionmaker  # Importing sessionmaker
+from model_state import State, Base
+# Importing the State model and Base
+# Importing create_engine to create an engine
+from sqlalchemy import create_engine
+# Importing sessionmaker to create a session
+from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
     """
-    Connects to the database using SQLAlchemy ORM, retrieves, and prints
-    all State objects.
+    Main execution block
+    Connects to the database and retrieves the states
     """
 
-    # Construct the database URL from command-line arguments
+    # Construct the database URL using command-line arguments
     database_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
         argv[1], argv[2], argv[3])
 
-    # Create an engine that represents the core interface to the database
+    # Create an engine to connect to the database
     engine = create_engine(database_url)
 
-    # Bind a sessionmaker to the engine to enable database session creation
+    # Create a Session class bound to the engine
     Session = sessionmaker(bind=engine)
 
-    # Instantiate a session
+    # Create a session object
     session = Session()
 
-    # Query the database to retrieve and print all State objects
-    for state in session.query(State).order_by(State.id).all():
+    # Retrieve all State objects from the database and print them
+    for state in session.query(State).order_by(State.id):
         print('{0}: {1}'.format(state.id, state.name))
