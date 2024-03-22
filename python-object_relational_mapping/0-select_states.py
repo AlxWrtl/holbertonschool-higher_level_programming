@@ -1,45 +1,36 @@
 #!/usr/bin/python3
 """
-Module for database interaction example.
-
-This script demonstrates a simple usage of MySQLdb for interacting with a
-MySQL database. It connects to the database, retrieves data from the 'states'
-table, and prints each row. It utilizes command-line arguments for database
-authentication and selection.
+Listing all states in DB hbtn_0e_0-_usa
 """
-
 import MySQLdb
 from sys import argv
 
-if __name__ == '__main__':
-    """
-    Connect to the MySQL database using credentials and database name
-    provided as command-line arguments.
-    """
-    db = MySQLdb.connect(
-        host="localhost",  # Database host
-        user=argv[1],      # Username from command-line argument
-        port=3306,         # Default MySQL port
-        passwd=argv[2],    # Password from command-line argument
-        db=argv[3]         # Database name from command-line argument
-    )
 
-    # Create a cursor object to interact with the database
+if __name__ == '__main__':
+    # Connect to MySQL server
+    db = MySQLdb.connect(
+        host="localhost",   # Host name to DB server
+        user=argv[1],       # Username passed in argument
+        port=3306,          # Port number of the DB server
+        passwd=argv[2],     # Pwd passed in argument
+        db=argv[3]
+    )         # DataBase passe in argument
+
+    # create cursor object associated to query, to acts as a pointer
+    # or iterator that allows us to traverse the result
     cur = db.cursor()
 
-    """
-    Execute a SQL query to select all rows from the 'states' table and
-    order them by 'id' in ascending order.
-    """
+    # Execute SQL query, to fecth rows from result set in the table "states"
     cur.execute("SELECT * FROM states ORDER BY id ASC")
 
-    # Fetch all the rows returned by the executed query.
+    # Fetch all rows
     rows = cur.fetchall()
 
-    # Iterate over the rows and print each one.
+    # Process data
     for row in rows:
         print(row)
 
-    # Close the cursor and database connection.
+    # Close all cursors
     cur.close()
+    # Close all databases
     db.close()
